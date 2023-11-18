@@ -1,0 +1,10 @@
+.container {
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+  
+  .student-container {
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #f2f2f2;
+  }

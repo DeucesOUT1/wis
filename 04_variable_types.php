@@ -8,7 +8,6 @@
 </head>
 <body>
     <h1>Variable Types</h1>
-
     <div class="container">
         <h2>Integers</h2>
         <?php
