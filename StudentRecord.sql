@@ -5,30 +5,30 @@ USE StudentRecord;
 ```
 CREATE TABLE Student (
     StudentID INT PRIMARY KEY,
-    FirstName VARCHAR(50),
-    LastName VARCHAR(50),
+    FirstName VARCHAR(255),
+    LastName VARCHAR(255),
     DateOfBirth DATE,
-    Email VARCHAR(100),
-    Phone VARCHAR(20),
+    Email VARCHAR(255),
+    Phone VARCHAR(20)
     
 );
-```
+
 CREATE TABLE Course (
     CourseID INT PRIMARY KEY,
     CourseName VARCHAR(100),
-    Credits INT,
+    Credits INT
    
 );
-```
+
 CREATE TABLE Instructor (
     InstructorID INT PRIMARY KEY,
-    FirstName VARCHAR(50),
-    LastName VARCHAR(50),
+    FirstName VARCHAR(255),
+    LastName VARCHAR(255),
     Email VARCHAR(100),
-    Phone VARCHAR(20),
+    Phone VARCHAR(20)
    
 );
-```
+
 CREATE TABLE Enrollment (
     EnrollmentID INT PRIMARY KEY,
     StudentID INT,

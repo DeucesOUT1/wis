@@ -11,23 +11,25 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-// echo "Connected successfully";
 
-$sql = "SELECT * FROM student";
+$sql = "SELECT * FROM Student";
 $result = $conn->query($sql);
 
 // Check if the query was successful
 if ($result) {
     echo '<table>';
-    echo '<tr><th>ID Number</th>
-          <th>FirstName</th>
-          <th>LastName</th>
-          <th>Birth Date</th>
-          <th>E-mail</th>
-          <th>Contact Number</th></tr>';
-          echo '<tr><td colspan="6"><hr></td></tr>'; // Separation line 
+    echo '<tr>
+            <th>ID Number</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Birth Date</th>
+            <th>E-mail</th>
+            <th>Contact Number</th>
+          </tr>';
+    echo '<tr><td colspan="6"><hr></td></tr>'; // Separation line 
+
     // Process the results
-    while ($row = mysqli_fetch_assoc($result)) {
+    while ($row = $result->fetch_assoc()) {
         echo '<tr>';
         echo '<td>' . $row['StudentID'] . '</td>';
         echo '<td>' . $row['FirstName'] . '</td>';
@@ -40,7 +42,8 @@ if ($result) {
     }
     echo '</table>';
 } else {
-    echo 'Error retrieving data: ' . mysqli_error($connection);
+    echo 'Error retrieving data: ' . $conn->error;
 }
 
+$conn->close(); // Close the connection
 ?>

@@ -24,9 +24,15 @@ if ($conn->connect_error) {
 // Function to handle form submission for adding a new student
 function addStudent() {
     global $conn;
-    $name = $_POST['student_name'];
-    $age = $_POST['student_age'];
-    $query = "INSERT INTO Student (name, age) VALUES ('$name', '$age')";
+    $firstName = $_POST['student_first_name'];
+    $lastName = $_POST['student_last_name'];
+    $dob = $_POST['student_dob'];
+    $email = $_POST['student_email'];
+    $phone = $_POST['student_phone'];
+
+    $query = "INSERT INTO Student (FirstName, LastName, DateOfBirth, Email, Phone) 
+              VALUES ('$firstName', '$lastName', '$dob', '$email', '$phone')";
+
     if ($conn->query($query) === TRUE) {
         echo "New student added successfully!";
     } else {
@@ -37,9 +43,12 @@ function addStudent() {
 // Function to handle form submission for adding a new course
 function addCourse() {
     global $conn;
-    $name = $_POST['course_name'];
-    $code = $_POST['course_code'];
-    $query = "INSERT INTO Courses (name, code) VALUES ('$name', '$code')";
+    $courseName = $_POST['course_name'];
+    $credits = $_POST['course_credits'];
+
+    $query = "INSERT INTO Course (CourseName, Credits) 
+              VALUES ('$courseName', '$credits')";
+
     if ($conn->query($query) === TRUE) {
         echo "New course added successfully!";
     } else {
@@ -50,9 +59,14 @@ function addCourse() {
 // Function to handle form submission for adding a new enrollment
 function addEnrollment() {
     global $conn;
-    $studentId = $_POST['student_id'];
-    $courseId = $_POST['course_id'];
-    $query = "INSERT INTO Enrollments (student_id, course_id) VALUES ('$studentId', '$courseId')";
+    $studentId = $_POST['enrollment_student_id'];
+    $courseId = $_POST['enrollment_course_id'];
+    $enrollmentDate = $_POST['enrollment_date'];
+    $grade = $_POST['enrollment_grade'];
+
+    $query = "INSERT INTO Enrollment (StudentID, CourseID, EnrollmentDate, Grade) 
+              VALUES ('$studentId', '$courseId', '$enrollmentDate', '$grade')";
+
     if ($conn->query($query) === TRUE) {
         echo "New enrollment added successfully!";
     } else {
@@ -63,15 +77,21 @@ function addEnrollment() {
 // Function to handle form submission for adding a new instructor
 function addInstructor() {
     global $conn;
-    $name = $_POST['instructor_name'];
-    $specialty = $_POST['instructor_specialty'];
-    $query = "INSERT INTO Instructors (name, specialty) VALUES ('$name', '$specialty')";
+    $instructorFirstName = $_POST['instructor_first_name'];
+    $instructorLastName = $_POST['instructor_last_name'];
+    $instructorEmail = $_POST['instructor_email'];
+    $instructorPhone = $_POST['instructor_phone'];
+
+    $query = "INSERT INTO Instructor (FirstName, LastName, Email, Phone) 
+              VALUES ('$instructorFirstName', '$instructorLastName', '$instructorEmail', '$instructorPhone')";
+
     if ($conn->query($query) === TRUE) {
         echo "New instructor added successfully!";
     } else {
         echo "Error: " . $query . "<br>" . $conn->error;
     }
 }
+
 
 // Check if the form for adding a new student is submitted
 if (isset($_POST['add_student'])) {
@@ -99,8 +119,11 @@ if (isset($_POST['add_instructor'])) {
   <h2>STUDENT</h2>
   <?php include 'show_student.php'; ?>
   <form method="POST" action="">
-    <input type="text" name="student_name" placeholder="Name" required>
-    <input type="number" name="student_age" placeholder="Age" required>
+    <input type="text" name="student_first_name" placeholder="First Name" required>
+    <input type="text" name="student_last_name" placeholder="Last Name" required>
+    <input type="date" name="student_dob" placeholder="Date of Birth" required>
+    <input type="email" name="student_email" placeholder="Email" required>
+    <input type="tel" name="student_phone" placeholder="Phone" required>
     <button type="submit" name="add_student">Add Student</button>
   </form>
 </div>
@@ -110,7 +133,7 @@ if (isset($_POST['add_instructor'])) {
   <?php include 'show_courses.php'; ?>
   <form method="POST" action="">
     <input type="text" name="course_name" placeholder="Course Name" required>
-    <input type="text" name="course_code" placeholder="Course Code" required>
+    <input type="number" name="course_credits" placeholder="Credits" required>
     <button type="submit" name="add_course">Add Course</button>
   </form>
 </div>
@@ -119,9 +142,11 @@ if (isset($_POST['add_instructor'])) {
   <h2>ENROLLMENTS</h2>
   <?php include 'show_enrollments.php'; ?>
   <form method="POST" action="">
-    <input type="number" name="student_id" placeholder="Student ID" required>
-    <input type="number" name="course_id" placeholder="Course ID" required>
-   <button type="submit" name="add_enrollment">Add Enrollment</button>
+    <input type="number" name="enrollment_student_id" placeholder="Student ID" required>
+    <input type="number" name="enrollment_course_id" placeholder="Course ID" required>
+    <input type="date" name="enrollment_date" placeholder="Enrollment Date" required>
+    <input type="text" name="enrollment_grade" placeholder="Grade" required>
+    <button type="submit" name="add_enrollment">Add Enrollment</button>
   </form>
 </div>
 
@@ -129,8 +154,10 @@ if (isset($_POST['add_instructor'])) {
   <h2>INSTRUCTORS</h2>
   <?php include 'show_instructors.php'; ?>
   <form method="POST" action="">
-    <input type="text" name="instructor_name" placeholder="Name" required>
-    <input type="text" name="instructor_specialty" placeholder="Specialty" required>
+    <input type="text" name="instructor_first_name" placeholder="First Name" required>
+    <input type="text" name="instructor_last_name" placeholder="Last Name" required>
+    <input type="email" name="instructor_email" placeholder="Email" required>
+    <input type="tel" name="instructor_phone" placeholder="Phone" required>
     <button type="submit" name="add_instructor">Add Instructor</button>
   </form>
 </div>
