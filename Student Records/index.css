@@ -1,7 +1,7 @@
 body {
-    background-color: antiquewhite;
-    font-family: 'Courier New', Courier, monospace;
-    color: black;
+    background-color: #f4f4f4;
+    font-family: 'Arial', sans-serif;
+    color: #333;
 }
 
 .navigation-bar {
@@ -9,6 +9,7 @@ body {
     padding: 0;
     margin: 0;
     display: flex;
+    background-color: #333;
 }
 
 .navigation-bar li {
@@ -18,43 +19,69 @@ body {
 .navigation-bar a {
     text-decoration: none;
     padding: 10px 15px;
-    border: 1px solid #333; /* Set border style */
-    border-radius: 5px; /* Optional: Add rounded corners */
-    background-color: #eee; /* Set default background color */
-    color: #333;
+    border-radius: 5px;
+    color: #fff;
     display: inline-block;
 }
 
 .navigation-bar a:hover {
-    background-color: #ddd; /* Set hover background color */
+    background-color: #555;
 }
 
-nav a {
-    background-color: brown;
-    padding: 10px 30px;
-    margin: 0 5px;
-    color: aliceblue;
-    text-decoration: none;
-    font-weight: bold;
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-nav a:hover {
-    background-color: blueviolet;
-    padding: 15px 35px;
-    color: white;
+.card-style {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
 }
 
-.files a {
-    background-color: black;
-    color: white;
-    padding: 10px 20px;
-    margin: 5px;
-    text-decoration: none;
-    font-weight: normal;
-    display: inline-flex;
+input[type="text"],
+input[type="number"],
+input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
-.files a:hover {
-    background-color: white;
-    color: black;
+input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #555;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #333;
+    color: #fff;
 }

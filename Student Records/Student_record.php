@@ -35,21 +35,22 @@
 
     <div class="card-style">
     <h1>Add Student Record</h1>
-    <table style="width:40%">
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-            <tr><td><label for="fname">First name:</label></td>
-            <td><input type="text" name="studentFname" id="studentFname" value=""></td></tr>
-            <tr><td><label for="fname">Last name:</label></td>
-            <td><input type="text" name="studentLname" id="studentLname" value=""></td></tr>
-            <tr><td><label for="fname">Date of Birth</label></td>
-            <td><input type="text" name="studentDOB" id="studentDOB" value=""></td></tr>
-            <tr><td><label for="fname">Email:</label></td>
-            <td><input type="text" name="studentEmail" id="studentEmail" value=""></td></tr>
-            <tr><td><label for="fname">Phone:</label></td>
-            <td><input type="text" name="studentPhone" id="studentPhone" value=""></td></tr>   
-            <tr><td></td><td><input type="submit" value="submit" name="addstudent"></td></tr>
-        </form>
-    </table>
+   <table style="width:40%">
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+        <tr><td><label for="fname">First name:</label></td>
+        <td><input type="text" name="studentFname" id="studentFname" value=""></td></tr>
+        <tr><td><label for="fname">Last name:</label></td>
+        <td><input type="text" name="studentLname" id="studentLname" value=""></td></tr>
+        <tr><td><label for="fname">Date of Birth:</label></td>
+        <td><input type="date" name="studentDOB" id="studentDOB"></td></tr>
+        <tr><td><label for="fname">Email:</label></td>
+        <td><input type="text" name="studentEmail" id="studentEmail" value=""></td></tr>
+        <tr><td><label for="fname">Phone:</label></td>
+        <td><input type="text" name="studentPhone" id="studentPhone" value=""></td></tr>   
+        <tr><td></td><td><input type="submit" value="submit" name="addstudent"></td></tr>
+    </form>
+</table>
+
     </div>
     <?php 
 
