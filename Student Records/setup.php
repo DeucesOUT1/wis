@@ -17,7 +17,7 @@
         <li><a href="setup.php">Setup</a></li>
     </ul>
 
-    <h1>Database Setup</h1>
+    <h1>Timmango Database Setup</h1>
 
 <?php
 
@@ -33,7 +33,7 @@ if ($conn->connect_error) {
 }
 
 
-$sql = "CREATE DATABASE IF NOT EXISTS studentrecord";
+$sql = "CREATE DATABASE IF NOT EXISTS Timmango";
 if ($conn->query($sql) === TRUE) {
     echo "Database created successfully<br>";
 } else {
@@ -41,7 +41,7 @@ if ($conn->query($sql) === TRUE) {
 }
 
 
-$conn->select_db("studentrecord");
+$conn->select_db("Timmango");
 
 
 $sql = "CREATE TABLE IF NOT EXISTS student (
